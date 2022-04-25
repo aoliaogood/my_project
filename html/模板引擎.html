@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/template-web.js"></script>
+</head>
+
+<body>
+    <div id="container"></div>
+
+    <!-- 模板的html结构需要定义到script中 -->
+    <script type="text/html" id="tpl-user">
+<h1>{{name}}   hi  {{age}}</h1>
+
+
+<ul>
+    {{each hobby}}
+    <li>索引：{{$index}},循环项是：{{$value}}</li>
+    {{/each}}
+</ul>
+<h3>{{regTime | dateFormat}}</h3>
+    </script>
+
+    <script>
+        // 定义过滤器
+        template.defaults.imports.dateFormat = function (date) {
+            var y = date.getFullYear()
+            var m = date.getMonth() + 1
+            var d = date.getDate()
+            return y + '-' + m + '-' + d
+        }
+
+        // 定义需要渲染的数据
+        var data = { name: 'zs', age: 20, hobby: ['吃饭', '睡觉'], regTime: new Date() }
+
+
+        // 调用    template函数
+        var str = template('tpl-user', data)
+        console.log(str);
+
+        // dom操作
+        document.querySelector('#container').innerHTML = str
+
+    </script>
+</body>
+
+</html>
+
+
+
+<!-- <div id="title"></div>
+    <div>姓名：<span id="age"></span></div>
+    <div>会员: <span id="isVIP"></span></div>
+    <div>注册时间:<span id="regTime"></span></div>
+    <div>爱好:
+        <ul id="hobby">
+            <li>爱好1</li>
+            <li>爱好2</li>
+        </ul>
+    </div>
+    <script>
+        var data = {
+            title: '<h3>用户信息</h3>',
+            name: 'zs',
+            age: 20,
+            isVIP: true,
+            regTime: new Date(),
+            hobby: ['吃饭', '睡觉', '打豆豆']
+        }
+    </script>

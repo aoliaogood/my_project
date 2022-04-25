@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/todolist.js"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #cbcecb;
+    }
+
+    header {
+
+        text-align: center;
+        line-height: 60px;
+        color: #dcddd2;
+        font-size: 24px;
+        height: 60px;
+        background-color: #2f322f;
+        margin-bottom: 30px;
+    }
+
+    #title {
+        height: 30px;
+        width: 500px;
+        border-radius: 10px;
+        box-shadow: inset;
+        outline: none;
+        font-size: 16px;
+        padding-left: 10px;
+        margin-left: 200px;
+
+    }
+
+    h2 {
+        margin: 30px 430px;
+    }
+
+    footer {
+        color: #ecece5;
+        text-align: center;
+        font-size: 12px;
+    }
+
+    li {
+        display: flex;
+        margin: 10px 0;
+        margin-left: 680px;
+        height: 40px;
+        line-height: 40px;
+        width: 450px;
+        background-color: aliceblue;
+    }
+
+    li input {
+        flex: 1;
+        height: 12px;
+        width: 12px;
+        margin: 15px;
+    }
+
+    p {
+        flex: 10;
+    }
+
+    a {
+        margin: 15px;
+        height: 10px;
+        width: 10px;
+        border-radius: 10px;
+        background-color: #cbcecb;
+
+    }
+</style>
+
+<body>
+    <header>
+        <section>
+            <label for="title">ToDoList</label>
+            <input type="text" id="title" name="title" placeholder="添加ToDo" required>
+        </section>
+    </header>
+    <section class="w">
+        <h2>正在进行<span id="todocount"></span></h2>
+        <ol id="todilist" class="demo-box">
+            <li>
+                <input type="checkbox">
+                <p></p>
+                <a href=""></a>
+            </li>
+        </ol>
+        <h2>已经完成<span id="donecount"></span></h2>
+        <ul id="donelist">
+            <li>
+                <input type="checkbox">
+                <p>123</p>
+                <a href=""></a>
+            </li>
+        </ul>
+    </section>
+    <footer>
+        Copyright &copy; 2014 todilist.cn
+    </footer>
+</body>
+
+</html>
